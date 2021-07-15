@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!-- Page Header -->
+<div class="head" style="background: url('static/img/banner.jpg') top center; background-size: cover;">
+    <div class="container">
+
+        <div class="site-heading">
+            <div class="title">Batik Pesisir</div>
+            <div class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu mattis eros. Donec urna nulla, tristique et suscipit lacinia, dignissim sit amet lectus. Pellentesque quam arcu, feugiat at tellus in, venenatis fermentum lectus</div>
+        </div>
+
+    </div>
+</div>
+
+    <!-- Main Content -->
+<div class="container">
+
+    <!-- Blog Post Item Start-->
+
+    <dl>
+        {% for post in object_list %}
+            <dd>
+                <hr/>
+                <strong class="display-6"href="{% url 'Article-Detail' post.pk %}">{{ post.title }} | </strong><br/><br/>
+                <a href="#about"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile"></a> <small> {{ post.author }} </small> 
+                <i class="far fa-calendar ms-3"></i> <small>{{post.date}}</small> 
+                <br/><br/><br/>
+                <div class="text-center">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" class="img-thumbnail" style="max-width: 400px; height: 250px;">    
+                    {% endif %}
+                </div>
+                
+                <figure class="text-center">
+                    <blockquote class="blockquote" style="color: black;">
+                        <p>{{ post.body|safe|slice:":500"}} </p>
+                    </blockquote>
+
+                    <a href="{% url 'Article-Detail' post.pk %}" class="btn btn-outline-info rounded-pill">
+                        Read more <i class="fas fa-arrow-right"></i> 
+                    </a>
+                </figure>
+                <hr/>
+            </dd>
+            <br/><br/><br/>
+        {% endfor %}
+    </dl>
+
+</div>
+<!-- End container -->
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Jumbotron -->
+<section class="p-5 text-center bg-image rounded-3" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg'); height: 400px;">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); height: 100%; width: 100%;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <br/>
+        <h1 class="mb-3">Batik Pesisir</h1>
+        <h5 class="mb-3">By: Hardi Syafrizal</h5>
+        <br/>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Jumbotron -->
+
+
+<br/>
+<section class="container">
+    <dl>
+    {% for post in object_list %}
+      <dd>
+          <hr/>
+          <strong class="display-6"href="{% url 'Article-Detail' post.pk %}">{{ post.title }} | </strong>  <small> Author: {{ post.author }} </small>
+          <small>{{post.date}}</small> 
+          <br/><br/><br/>
+          <div class="text-center">
+              <img src="{{ post.image.url }}" class="img-thumbnail" style="max-width: 400px; height: 250px;">    
+          </div>
+          
+          <figure class="text-center">
+              <blockquote class="blockquote">
+                <p>{{ post.body|safe|slice:":500"}} <u><a href="{% url 'Article-Detail' post.pk %}">Read more..</a></u> </p>
+              </blockquote>
+          </figure>
+          <hr/>
+      </dd>
+      <br/><br/><br/>
+    {% endfor %}
+    </dl>
+</section>
+
+{% endblock %}

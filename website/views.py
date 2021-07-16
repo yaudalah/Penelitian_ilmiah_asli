@@ -16,4 +16,3 @@ class ArticleDetailView(DetailView):
 
 class About(ListView):
     model = Post
-    template_name = 'home/about-me.html'

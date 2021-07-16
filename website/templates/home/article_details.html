@@ -5,8 +5,9 @@
 {% block content %}
 
 <div class="container">
-    <h1>{{post.title}}</h1>
-    <small>By: {{post.author}} - {{ post.date }}</small>
+    <strong class="display-6">{{ post.title }} | </strong><br/><br/>
+    <a href="#about"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile"></a> <small> {{post.author}} </small>
+    <i class="far fa-calendar ms-3"></i> <small>{{post.date}}</small> 
     <hr>
     <br/>
 </div>
@@ -18,10 +19,14 @@
     <br/><br/><br/>
     {{ post.body|safe }}
     <br/>
-        <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">Back</a>
     <br/>
 </div>
 <br/>
+<div class="container d-grid gap-2">
+    <a href="{% url 'home' %}" class="btn btn-info">
+        <i class="fas fa-arrow-left"></i> Back  
+    </a>
+</div>
 <hr/>
 <br/>
 <br/>

@@ -64,7 +64,7 @@
         </li>
         {% endif %}
         <li class="page-item disabled">
-            <a href="#" class="page-link">Page {{posts.number }} of {{ posts.paginator.num_pages }}</a>
+            <a href="#" class="page-link">Page {{ posts.number }} of {{ posts.paginator.num_pages }}</a>
         </li>
         {% if posts.has_next %}
         <li class="page-item">
@@ -73,7 +73,7 @@
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="?page=1" aria-label="Previous">
+            <a class="page-link" href="?page={{ posts.paginator.num_pages }}" aria-label="Previous">
                 <span aria-hidden="true">Last &raquo;</span>
             </a>
         </li>

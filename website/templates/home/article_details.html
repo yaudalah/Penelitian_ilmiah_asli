@@ -5,29 +5,31 @@
 {% block content %}
 
 <div class="container">
-    <strong class="display-6">{{ post.title }} | </strong><br/><br/>
-    <a href="#about"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile"></a> <small> {{post.author}} </small>
-    <i class="far fa-calendar ms-3"></i> <small>{{post.date}}</small> 
+    <strong class="display-6">{{ current_post.title }} | </strong><br/><br/>
+    <a href="#about"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile"></a> <small> {{ current_post.author }} </small>
+    <i class="far fa-calendar ms-3"></i> <small>{{ current_post.date }}</small> 
     <hr>
     <br/>
 </div>
 
 <div class="container" style="background-color: rgb(243, 241, 241);">
-    {% if post.image %}
-        <img src="{{ post.image.url }}" class="img-fluid">
+    {% if current_post.image %}
+        <img src="{{ current_post.image.url }}" class="img-fluid">
     {% endif %}
     <br/><br/><br/>
-    {{ post.body|safe }}
-    <br/>
-    <br/>
+    {{ current_post.body|safe }}
+    <br/><br/>
 </div>
+
 <br/>
+
 <div class="container d-grid gap-2">
     <a href="{% url 'home' %}" class="btn btn-info">
         <i class="fas fa-arrow-left"></i> Back  
     </a>
 </div>
+
 <hr/>
-<br/>
-<br/>
+<br/><br/>
+
 {% endblock %}

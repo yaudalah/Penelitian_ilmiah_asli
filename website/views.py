@@ -1,8 +1,9 @@
+from django.db import models
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import View
 from .models import Post
 from django.core.paginator import Paginator
-from django.http import Http404
+from django.http import Http404, request
 
 def HomeView(request):
     context = {}
@@ -28,5 +29,10 @@ def ArticleDetailView(request, post_id):
 
     return render(request, 'home/article_details.html', context)
     
-class About(ListView):
-    model = Post
+def SejarahView(request):
+    
+    return render(request, 'sejarah/sejarah.html')
+
+def AboutView(request):
+    
+    return render(request, 'about/about.html')

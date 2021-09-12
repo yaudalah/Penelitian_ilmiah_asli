@@ -19,7 +19,7 @@
 <!-- Navigation -->
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light bg-gradient">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">
+      <a class="navbar-brand" href="{% url 'Home' %}">
         <img src="{% static 'img/LUG.png' %}" width="24" height="24" class="d-inline-block align-top">
         Batik pesisir
       </a>
@@ -28,17 +28,22 @@
       aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" aria-current="page" href="{% url 'Home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="{% url 'Sejarah-Batik' %}">Sejarah</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'About' %}">About</a>
           </li>
         </ul>
       </div>
     </div>
+
 </nav>
 <!-- Navigation -->
 
@@ -50,49 +55,6 @@
     {% endblock %}
 </section>
 <!-- /.container -->
-
-<section id="about" class="container"  style="background-color: blanchedalmond;">
-  <div class="container">
-  
-      <div class="section-title">
-          <h1 class="text-center">About Me</h1><hr/>
-      </div>
-  
-      <div class="row">
-          <div class="col-lg-4">
-              <img src="{% static 'img/ftp.jpg' %}" class="img-fluid" alt="" loading="lazy">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content">
-              <h3>My personal details</h3><br/>
-              <div class="row">
-                  <div class="col-lg-6">
-                      <ul>
-                          <li><i class="bi bi-chevron-right"></i> <strong>Nama:</strong> <span>Hardi Syafrizal</span></li>
-                          <li><i class="bi bi-chevron-right"></i> <strong>Kelas:</strong> <span>3KA32</span></li>
-                          <li><i class="bi bi-chevron-right"></i> <strong>NPM:</strong> <span>13118064</span></li>
-                      </ul>
-                  </div>
-                  <div class="col-lg-6">
-                      <ul>
-                          <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>nulltyper.wordpress.com</span></li>
-                          <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+62 851 5508 0292</span></li>
-                          <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>hardisyafrizal@gmail.com</span></li>
-                      </ul>
-                  </div>
-              </div>
-              <blockquote class="blockquote" style="color: black;">
-                <p class="text-justify">
-                  Seorang mahasiswa Universitas Gunadarma angkatan 2018 yang berlokasikan di kampus E Karawaci
-                  aktif sebagai anggota dari organanisasi Fajrul Islam angkatan 2018, dan
-                  pernah menjadi anggota dari Himpunan Mahasiswa Sistem Informasi (HIMSI).
-                </p>
-            </blockquote>
-          </div>
-      </div>
-  
-  </div>
-</section> 
-
 
 <!-- Site footer -->
 

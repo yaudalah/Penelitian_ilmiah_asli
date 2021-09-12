@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 <!-- Page Header -->
-<div class="head" style="background: url('static/img/banner.jpg') top center; background-size: cover; min-height:450px;">
+<div class="head" style="background: url('static/img/Banner-Sejarah.jpg') top center; background-size: cover; min-height:450px;">
     <div class="container">
 
         <div class="site-heading">
@@ -16,14 +16,16 @@
     <!-- Main Content -->
 <div class="container">
 
+    <p class=" lead text-end"> Halaman - {{posts.number}}</p>
+    <h2 class="text-center">Artikel</h2>
+    <br/>
     <!-- Blog Post Item Start-->
-
     <dl>
         {% for post in posts %}
             <dd>
                 <hr/>
                 <strong class="display-6"href="{% url 'Article-Detail' post.pk %}">{{ post.title }} | </strong><br/><br/>
-                <a href="#about"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile" loading="lazy"></a> <small> {{ post.author }} </small> 
+                <a href="{% url 'About' %}"><img class="avatar-small rounded-circle" src="{% static 'img/ftp.jpg' %}" alt="Profile" loading="lazy"></a> <small> {{ post.author }} </small> 
                 <i class="far fa-calendar ms-3"></i> <small>{{post.date}}</small> 
                 <br/><br/><br/>
                 <div class="text-center">
@@ -39,53 +41,52 @@
                         <p>{{ post.body|safe|slice:":500"}}..</p>
                     </blockquote>
 
-                    <a href="{% url 'Article-Detail' post.pk %}" class="btn btn-outline-info rounded-pill">
+                    <a href="{% url 'Article-Detail' post.pk %}" class="btn btn-lg btn-outline-info rounded-pill">
                         Read more <i class="fas fa-arrow-right"></i> 
                     </a>
                 </figure>
                 <hr/>
             </dd>
-            <br/><br/><br/>
+            <br/><br/>
         {% endfor %}
     </dl>
 
     <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-        {% if posts.has_previous %}
-        <li class="page-item">
-            <a class="page-link" href="?page=1" aria-label="First">
-                <span aria-hidden="true">&laquo; First</span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
-                <span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
-            </a>
-        </li>
-        {% endif %}
+        <ul class="pagination pagination-md justify-content-center">
+            {% if posts.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                    <span aria-hidden="true">&laquo; First</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                </a>
+            </li>
+            {% endif %}
 
-        {% for i in page_nums %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
-        </li>
-        {% endfor %}
+            {% for i in page_nums %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+            </li>
+            {% endfor %}
 
 
-        {% if posts.has_next %}
-        <li class="page-item">
-            <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
-                <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="?page={{ posts.paginator.num_pages }}" aria-label="Last">
-                <span aria-hidden="true">Last &raquo;</span>
-            </a>
-        </li>
-        {% endif %}
-    </ul>
+            {% if posts.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true"><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ posts.paginator.num_pages }}" aria-label="Last">
+                    <span aria-hidden="true">Last &raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
     </nav>
-</br>
 </div>
 <!-- End container -->
 {% endblock %}
